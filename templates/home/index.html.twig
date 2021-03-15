@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+
+	{% include "home/_header.html.twig" %}
+
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="jumbotron mt-3">
+			<h1 class="display-3">Bienvenue sur photographe</h1>
+			<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+			<hr class="my-4">
+			<p>Voir mon portfolio</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="#" role="button">VOIR</a>
+			</p>
+		</div>
+		<h2 class="text-center">Mes thèmes</h2>
+
+		<div class="row mt-5">
+			{% for article in articles %}
+				<div class="col-md-4">
+					<div class="card bg-light mb-3">
+						<div class="card-header text-center">
+							{{article.titre}}
+						</div>
+						<img src="{{article.imageSrc}}" alt="Img" style="height: 200px; width: 100%; display:block">
+						<div class="car-body">
+							<p class="card-title text-center">{{article.contenu}}</p>
+							<a href="{{ path('projet', {id: article.id}) }}" class="btn btn-secondary">Voir</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+</div>{% endblock %}
